@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://d2eyrf8bdlk1j" path="res://assets/sprites/Player_V2.2.png" id="2_g2els"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_riqys"]
-radius = 5.0
-height = 18.0
+radius = 4.0
+height = 10.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1960103850]
 z_index = 1
@@ -17,5 +17,5 @@ region_enabled = true
 region_rect = Rect2(0, 0, 16, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1937650503]
-position = Vector2(0, 7)
+position = Vector2(0, 11)
 shape = SubResource("CapsuleShape2D_riqys")
