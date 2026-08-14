@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://du0ywwab8nmti" path="res://assets/tilemap/BasicSpriteSheet.png" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://kdbsc8jxjdrb" path="res://scenes/player.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://c32mpvubn1v17" path="res://scenes/game_manager.tscn" id="3_sugp2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0wfyh"]
 texture = ExtResource("1_o5qli")
@@ -30,3 +31,5 @@ limit_left = -482
 limit_top = -268
 limit_right = 364
 limit_bottom = 200
+
+[node name="GameManager" parent="." unique_id=724050967 instance=ExtResource("3_sugp2")]
