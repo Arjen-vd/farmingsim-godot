@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b2ccxvscshpah" path="res://scenes/player.tscn" id="2_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://dm6a1h834gkxk" path="res://assets/sprites/spritesheets/PT_spritesheet.png" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://06wjvncdsn1a" path="res://scenes/ui/inv_ui.tscn" id="3_lnu2h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_yqjtg")
@@ -22,3 +23,10 @@ tile_map_data = PackedByteArray("AADu/wEAAAAAAAAAAADu/wIAAAAAAAAAAADu/wMAAAAAAAA
 tile_set = SubResource("TileSet_bhunq")
 
 [node name="Player" parent="." unique_id=2116790181 instance=ExtResource("2_lnu2h")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1763861296]
+offset = Vector2(10, 10)
+transform = Transform2D(1, 0, 0, 1, 10, 10)
+
+[node name="Inv_UI" parent="CanvasLayer" unique_id=1278450684 instance=ExtResource("3_lnu2h")]
+scale = Vector2(2, 2)
