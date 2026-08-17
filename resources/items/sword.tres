@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="InvItem" format=3 uid="uid://b5trfnw0uib2v"]
 
-[ext_resource type="Script" uid="uid://b3rcghqm7xtvv" path="res://scripts/InvItem.gd" id="1_otrck"]
+[ext_resource type="Script" uid="uid://b3rcghqm7xtvv" path="res://scripts/inventory/InvItem.gd" id="1_otrck"]
 [ext_resource type="Texture2D" uid="uid://bvwptxur746gs" path="res://assets/sprites/items/PT_sword.png" id="2_otrck"]
 
 [resource]

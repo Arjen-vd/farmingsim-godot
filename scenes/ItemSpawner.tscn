@@ -35,7 +35,7 @@ script = ExtResource("1_vsudw")
 sprite_frames = SubResource("SpriteFrames_bhunq")
 animation = &"base"
 autoplay = "base"
-frame_progress = 0.651332
+frame_progress = 0.25976375
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1375864353]
 shape = SubResource("RectangleShape2D_riqys")
