@@ -6,6 +6,13 @@ signal update
 
 @export var slots: Array[InvSlot]
 
+func clear() -> void:
+	for slot in slots:
+		slot.item = null
+		slot.amount = 0
+	update.emit()
+
+		
 func insert(item: InvItem) -> bool:
 	## Looks for slot that has an item where the amount in the slot is smaller than maxStack
 	var itemSlots = slots.filter(func(slot): 

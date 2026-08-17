@@ -31,8 +31,6 @@ func _get_drag_data(at_position: Vector2) -> Variant:
 	preview.texture = inventorySlot.item.texture
 	set_drag_preview(preview)
 	
-	print(data)
-	
 	return data
 
 func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
