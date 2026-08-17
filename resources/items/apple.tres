@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="InvItem" format=3 uid="uid://bwqwcu0qy51jk"]
 
-[ext_resource type="Script" uid="uid://b3rcghqm7xtvv" path="res://scripts/item.gd" id="1_2oqkr"]
+[ext_resource type="Script" uid="uid://b3rcghqm7xtvv" path="res://scripts/InvItem.gd" id="1_2oqkr"]
 [ext_resource type="Texture2D" uid="uid://d4fap8h5pki1l" path="res://assets/sprites/items/PT_apple.png" id="2_2oqkr"]
 
 [resource]

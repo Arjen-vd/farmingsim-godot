@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InvItem" format=3 uid="uid://b5trfnw0uib2v"]
+
+[ext_resource type="Script" uid="uid://b3rcghqm7xtvv" path="res://scripts/InvItem.gd" id="1_otrck"]
+[ext_resource type="Texture2D" uid="uid://bvwptxur746gs" path="res://assets/sprites/items/PT_sword.png" id="2_otrck"]
+
+[resource]
+script = ExtResource("1_otrck")
+name = "Sword"
+maxStack = 1
+texture = ExtResource("2_otrck")
+metadata/_custom_type_script = "uid://b3rcghqm7xtvv"

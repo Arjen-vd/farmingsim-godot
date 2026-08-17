@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b2ccxvscshpah"]
 
-[ext_resource type="Script" uid="uid://db3w7eqck0klq" path="res://scripts/player.gd" id="1_qir2g"]
+[ext_resource type="Script" uid="uid://db3w7eqck0klq" path="res://scripts/Player.gd" id="1_qir2g"]
 [ext_resource type="Texture2D" uid="uid://s64uuj2ey6lr" path="res://assets/sprites/player/PT_player.png" id="2_lkt5g"]
 [ext_resource type="Resource" uid="uid://bll7kqxlm5rs4" path="res://resources/inventory/playerinv.tres" id="2_qhqgy"]
 [ext_resource type="Resource" uid="uid://bwqwcu0qy51jk" path="res://resources/items/apple.tres" id="3_dqkch"]
