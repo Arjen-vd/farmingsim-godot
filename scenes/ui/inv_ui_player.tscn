@@ -1,8 +1,40 @@
-[gd_scene format=3 uid="uid://06wjvncdsn1a"]
+[gd_scene format=3 uid="uid://bjcgt31q0gplk"]
 
-[ext_resource type="Script" uid="uid://0kkos0x7sdu" path="res://scripts/inventory/InvUI.gd" id="1_wefod"]
 [ext_resource type="Texture2D" uid="uid://cmv53ihi1d7uk" path="res://assets/sprites/ui/PT_inventory_background.png" id="2_2tqa5"]
-[ext_resource type="PackedScene" uid="uid://bt3dxu4vdbuvw" path="res://scenes/ui/inv_ui_slot.tscn" id="3_tmo6b"]
+[ext_resource type="PackedScene" uid="uid://5dtjgb6dcacm" path="res://scenes/ui/inv_ui_slot.tscn" id="3_tmo6b"]
+
+[sub_resource type="GDScript" id="GDScript_mfl2l"]
+script/source = "extends Control
+
+@onready var inventory: Inventory = preload(\"res://resources/inventory/playerinv.tres\")
+@onready var slots: Array = $NinePatchRect/GridContainer.get_children()
+
+var isOpen : bool = false
+
+func _ready() -> void:
+	inventory.update.connect(update_slots)
+	update_slots()
+	close()
+	
+func update_slots():
+	for i in range(min(inventory.slots.size(), slots.size())):
+		slots[i].update(inventory, inventory.slots[i])
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed(\"Inventory\"):
+		if isOpen:
+			close()
+		else:
+			open()
+	
+func open():
+	visible = true
+	isOpen = true
+
+func close():
+	visible = false
+	isOpen = false
+"
 
 [node name="Inv_UI" type="Control" unique_id=1278450684]
 custom_minimum_size = Vector2(83, 53)
@@ -10,7 +42,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 102.0
 offset_bottom = 53.0
-script = ExtResource("1_wefod")
+script = SubResource("GDScript_mfl2l")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=669206434]
 layout_mode = 0

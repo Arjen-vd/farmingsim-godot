@@ -1,14 +1,62 @@
-[gd_scene format=3 uid="uid://bt3dxu4vdbuvw"]
+[gd_scene format=3 uid="uid://5dtjgb6dcacm"]
 
-[ext_resource type="Script" uid="uid://37atr2dms6ta" path="res://scripts/inventory/InvUISlot.gd" id="1_xk2dx"]
 [ext_resource type="Texture2D" uid="uid://b5jeawbwlfd7k" path="res://assets/sprites/ui/PT_inventory_slot.png" id="2_csgc5"]
+
+[sub_resource type="GDScript" id="GDScript_jeme5"]
+script/source = "extends Panel
+
+@onready var itemVisual: Sprite2D = $CenterContainer/Panel/item_display
+@onready var amountText: Label = $CenterContainer/Panel/Label
+
+var inventorySlot: InvSlot
+var inventory: Inventory
+
+func update(new_inventory: Inventory, slot: InvSlot):
+	inventory = new_inventory
+	inventorySlot = slot
+	
+	if !slot.item:
+		itemVisual.visible = false
+		amountText.visible = false
+	else:
+		itemVisual.visible = true
+		itemVisual.texture = slot.item.texture
+		amountText.visible = true
+		amountText.text = str(slot.amount)
+		
+func _get_drag_data(at_position: Vector2) -> Variant:
+	if inventorySlot.item == null:
+		return null
+		
+	var data = {
+		\"slot\": inventorySlot
+	}
+	
+	var preview: TextureRect = TextureRect.new()
+	preview.texture = inventorySlot.item.texture
+	set_drag_preview(preview)
+	
+	return data
+
+func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
+	var draggedSlot: InvSlot = data[\"slot\"]
+	
+	return inventory.canMove(draggedSlot, inventorySlot)
+	
+func _drop_data(at_position: Vector2, data: Variant) -> void:
+	var draggedSlot: InvSlot = data[\"slot\"]
+	
+	inventory.move(draggedSlot, inventorySlot)
+	
+		
+"
 
 [node name="inv_UI_slot" type="Panel" unique_id=1035174303]
 self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(16, 16)
 offset_right = 16.0
 offset_bottom = 16.0
-script = ExtResource("1_xk2dx")
+script = SubResource("GDScript_jeme5")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=764440533]
 texture = ExtResource("2_csgc5")

@@ -2,14 +2,9 @@ extends CharacterBody2D
 
 @export var speed : float = 75.0
 
-@export var inventory: Inventory
-
 func _physics_process(delta: float) -> void:
 	## Get Input direction on a 2d vector
 	var input_direction = Input.get_vector("Left", "Right", "Up", "Down")
-
-	if Input.is_action_just_pressed("Space"):
-		clearInv()
 	
 	## Calculate velocity
 	velocity = input_direction * speed
@@ -18,9 +13,3 @@ func _physics_process(delta: float) -> void:
 	# print("x: " + str(round(position.x)) + " y: " + str(round(position.y)))
 
 	move_and_slide()
-
-func collect(item):
-	return inventory.insert(item)
-	
-func clearInv():
-	inventory.clear()
