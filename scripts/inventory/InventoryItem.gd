@@ -1,7 +1,7 @@
 extends Resource
 
-class_name InvItem
+class_name InventoryItem
 
 @export var name: String
 @export var maxStack: int
-@export var texture: Texture2D
+@export var icon: Texture2D

@@ -14,7 +14,7 @@ func _on_timer_timeout() -> void:
 	spawn_item(resource, Vector2(randi_range(-20,20), randi_range(-20,20)))
 	
 	
-func spawn_item(item: InvItem, spawnPosition: Vector2):
+func spawn_item(item: InventoryItem, spawnPosition: Vector2):
 	var entity = itemEntity.instantiate()
 	
 	add_child(entity)

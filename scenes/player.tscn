@@ -2,8 +2,6 @@
 
 [ext_resource type="Script" uid="uid://db3w7eqck0klq" path="res://scripts/Player.gd" id="1_qir2g"]
 [ext_resource type="Texture2D" uid="uid://s64uuj2ey6lr" path="res://assets/sprites/player/PT_player.png" id="2_lkt5g"]
-[ext_resource type="Resource" uid="uid://bll7kqxlm5rs4" path="res://resources/inventory/playerinv.tres" id="2_qhqgy"]
-[ext_resource type="Resource" uid="uid://bwqwcu0qy51jk" path="res://resources/items/apple.tres" id="3_dqkch"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bhunq"]
 radius = 4.0
@@ -12,8 +10,6 @@ height = 12.0
 [node name="Player" type="CharacterBody2D" unique_id=2116790181]
 z_index = 5
 script = ExtResource("1_qir2g")
-inventory = ExtResource("2_qhqgy")
-testitem = ExtResource("3_dqkch")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=457330853]
 texture = ExtResource("2_lkt5g")

@@ -1,11 +1,11 @@
-[gd_resource type="Resource" script_class="InvItem" format=3 uid="uid://b5trfnw0uib2v"]
+[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://b5trfnw0uib2v"]
 
-[ext_resource type="Script" uid="uid://b3rcghqm7xtvv" path="res://scripts/inventory/InvItem.gd" id="1_otrck"]
+[ext_resource type="Script" uid="uid://b3rcghqm7xtvv" path="res://scripts/inventory/InventoryItem.gd" id="2_5eq2r"]
 [ext_resource type="Texture2D" uid="uid://bvwptxur746gs" path="res://assets/sprites/items/PT_sword.png" id="2_otrck"]
 
 [resource]
-script = ExtResource("1_otrck")
+script = ExtResource("2_5eq2r")
 name = "Sword"
-maxStack = 1
-texture = ExtResource("2_otrck")
+maxStack = 2
+icon = ExtResource("2_otrck")
 metadata/_custom_type_script = "uid://b3rcghqm7xtvv"
