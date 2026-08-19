@@ -1,48 +1,19 @@
 [gd_scene format=3 uid="uid://bjcgt31q0gplk"]
 
+[ext_resource type="Script" uid="uid://cqbv0t4khxam7" path="res://scripts/InventoryUI.gd" id="1_2md16"]
 [ext_resource type="Texture2D" uid="uid://cmv53ihi1d7uk" path="res://assets/sprites/ui/PT_inventory_background.png" id="2_2tqa5"]
+[ext_resource type="Resource" uid="uid://cycwi0ojuigj3" path="res://resources/inventory/playerInventoryCT.tres" id="2_la000"]
 [ext_resource type="PackedScene" uid="uid://5dtjgb6dcacm" path="res://scenes/ui/inv_ui_slot.tscn" id="3_tmo6b"]
-
-[sub_resource type="GDScript" id="GDScript_mfl2l"]
-script/source = "extends Control
-
-@onready var inventory: Inventory = preload(\"res://resources/inventory/playerinv.tres\")
-@onready var slots: Array = $NinePatchRect/GridContainer.get_children()
-
-var isOpen : bool = false
-
-func _ready() -> void:
-	inventory.update.connect(update_slots)
-	update_slots()
-	close()
-	
-func update_slots():
-	for i in range(min(inventory.slots.size(), slots.size())):
-		slots[i].update(inventory, inventory.slots[i])
-
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed(\"Inventory\"):
-		if isOpen:
-			close()
-		else:
-			open()
-	
-func open():
-	visible = true
-	isOpen = true
-
-func close():
-	visible = false
-	isOpen = false
-"
 
 [node name="Inv_UI" type="Control" unique_id=1278450684]
 custom_minimum_size = Vector2(83, 53)
 layout_mode = 3
 anchors_preset = 0
-offset_right = 102.0
+offset_right = 83.0
 offset_bottom = 53.0
-script = SubResource("GDScript_mfl2l")
+scale = Vector2(2, 2)
+script = ExtResource("1_2md16")
+inventoryManager = ExtResource("2_la000")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=669206434]
 layout_mode = 0
@@ -70,47 +41,32 @@ grow_vertical = 2
 scale = Vector2(0.8, 0.8)
 columns = 5
 
-[node name="inv_UI_slot1" parent="NinePatchRect/GridContainer" unique_id=1035174303 instance=ExtResource("3_tmo6b")]
+[node name="inv_UI_slot" parent="NinePatchRect/GridContainer" unique_id=1035174303 instance=ExtResource("3_tmo6b")]
 layout_mode = 2
 
-[node name="inv_UI_slot2" parent="NinePatchRect/GridContainer" unique_id=1618191689 instance=ExtResource("3_tmo6b")]
+[node name="inv_UI_slot2" parent="NinePatchRect/GridContainer" unique_id=1700919064 instance=ExtResource("3_tmo6b")]
 layout_mode = 2
 
-[node name="inv_UI_slot3" parent="NinePatchRect/GridContainer" unique_id=504352775 instance=ExtResource("3_tmo6b")]
+[node name="inv_UI_slot3" parent="NinePatchRect/GridContainer" unique_id=1031658953 instance=ExtResource("3_tmo6b")]
 layout_mode = 2
 
-[node name="inv_UI_slot4" parent="NinePatchRect/GridContainer" unique_id=660679766 instance=ExtResource("3_tmo6b")]
+[node name="inv_UI_slot4" parent="NinePatchRect/GridContainer" unique_id=2114883018 instance=ExtResource("3_tmo6b")]
 layout_mode = 2
 
-[node name="inv_UI_slot5" parent="NinePatchRect/GridContainer" unique_id=1683293102 instance=ExtResource("3_tmo6b")]
+[node name="inv_UI_slot5" parent="NinePatchRect/GridContainer" unique_id=1677843933 instance=ExtResource("3_tmo6b")]
 layout_mode = 2
 
-[node name="inv_UI_slot6" parent="NinePatchRect/GridContainer" unique_id=2099093819 instance=ExtResource("3_tmo6b")]
+[node name="inv_UI_slot6" parent="NinePatchRect/GridContainer" unique_id=1683976324 instance=ExtResource("3_tmo6b")]
 layout_mode = 2
 
-[node name="inv_UI_slot7" parent="NinePatchRect/GridContainer" unique_id=383416235 instance=ExtResource("3_tmo6b")]
+[node name="inv_UI_slot7" parent="NinePatchRect/GridContainer" unique_id=1381481219 instance=ExtResource("3_tmo6b")]
 layout_mode = 2
 
-[node name="inv_UI_slot8" parent="NinePatchRect/GridContainer" unique_id=685448390 instance=ExtResource("3_tmo6b")]
+[node name="inv_UI_slot8" parent="NinePatchRect/GridContainer" unique_id=1847833155 instance=ExtResource("3_tmo6b")]
 layout_mode = 2
 
-[node name="inv_UI_slot9" parent="NinePatchRect/GridContainer" unique_id=874126070 instance=ExtResource("3_tmo6b")]
+[node name="inv_UI_slot9" parent="NinePatchRect/GridContainer" unique_id=1493869249 instance=ExtResource("3_tmo6b")]
 layout_mode = 2
 
-[node name="inv_UI_slot10" parent="NinePatchRect/GridContainer" unique_id=134282336 instance=ExtResource("3_tmo6b")]
-layout_mode = 2
-
-[node name="inv_UI_slot11" parent="NinePatchRect/GridContainer" unique_id=1492676919 instance=ExtResource("3_tmo6b")]
-layout_mode = 2
-
-[node name="inv_UI_slot12" parent="NinePatchRect/GridContainer" unique_id=542096727 instance=ExtResource("3_tmo6b")]
-layout_mode = 2
-
-[node name="inv_UI_slot13" parent="NinePatchRect/GridContainer" unique_id=275608635 instance=ExtResource("3_tmo6b")]
-layout_mode = 2
-
-[node name="inv_UI_slot14" parent="NinePatchRect/GridContainer" unique_id=469718273 instance=ExtResource("3_tmo6b")]
-layout_mode = 2
-
-[node name="inv_UI_slot15" parent="NinePatchRect/GridContainer" unique_id=1199135797 instance=ExtResource("3_tmo6b")]
+[node name="inv_UI_slot10" parent="NinePatchRect/GridContainer" unique_id=1184985656 instance=ExtResource("3_tmo6b")]
 layout_mode = 2

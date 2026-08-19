@@ -41,6 +41,8 @@ func moveItem(fromInventory : Inventory, fromIndex : int,
 		
 		fromSlot.item = null
 		fromSlot.amount = 0
+		fromInventory.update.emit()
+		toInventory.update.emit()
 	
 	## Same item stack it together
 	elif toSlot.item == fromSlot.item:
@@ -49,9 +51,13 @@ func moveItem(fromInventory : Inventory, fromIndex : int,
 		
 		toSlot.amount += amountToMove
 		fromSlot.amount -= amountToMove
+		fromInventory.update.emit()
+		toInventory.update.emit()
 		
 		if fromSlot.amount == 0:
 			fromSlot.item = null
+			fromInventory.update.emit()
+			toInventory.update.emit()
 	
 	## Different item swap it
 	else:
@@ -63,6 +69,8 @@ func moveItem(fromInventory : Inventory, fromIndex : int,
 		
 		fromSlot.item = tempItem
 		fromSlot.amount = tempAmount
+		fromInventory.update.emit()
+		toInventory.update.emit()
 
 func addItem(item : ItemData, amount : int) -> int:
 	while amount > 0:
@@ -81,6 +89,7 @@ func addItem(item : ItemData, amount : int) -> int:
 
 			itemSlot.amount += amountToAdd
 			amount -= amountToAdd
+			inventory.update.emit()
 			continue
 		
 		## Filter empty slots (Item == null)
@@ -99,6 +108,8 @@ func addItem(item : ItemData, amount : int) -> int:
 		slot.item = item
 		slot.amount = amountToAdd
 		amount -= amountToAdd
+		inventory.update.emit()
+
 	return amount
 			
 func pickUpItem(item : ItemData) -> bool:
@@ -110,6 +121,8 @@ func clearInventory():
 	for i in inventory.slots:
 		i.item = null
 		i.amount = 0
+		inventory.update.emit()
+
 		
 func printContents():
 	print("Inventory:")
