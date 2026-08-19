@@ -4,38 +4,88 @@ class_name InventoryManager
 
 @export var inventory : Inventory
 
-func moveItem(fromInventory : Inventory,fromIndex : int,
-				toInventory : Inventory,toIndex : int) -> void:
+func canMove(fromInventory : Inventory, fromIndex : int,
+		toInventory : Inventory, toIndex : int) -> bool:
+	
 	var fromSlot = fromInventory.slots[fromIndex]
 	var toSlot = toInventory.slots[toIndex]
 	
-	toSlot.item = fromSlot.item
-	toSlot.amount = fromSlot.amount
-
-	fromSlot.item = null
-	fromSlot.amount = 0
+	if fromSlot == toSlot:
+		return false
+	
+	if fromSlot.item == null:
+		return false
+	
+	if toSlot.item == null:
+		return true
+	
+	if toSlot.item == fromSlot.item:
+		return toSlot.amount < toSlot.item.maxStack
+	
+	return true
+		
+	
+func moveItem(fromInventory : Inventory, fromIndex : int,
+		toInventory : Inventory, toIndex : int) -> void:
+	
+	if not canMove(fromInventory, fromIndex, toInventory, toIndex):
+		return
+	
+	var fromSlot = fromInventory.slots[fromIndex]
+	var toSlot = toInventory.slots[toIndex]
+	
+	## Empty slot set item to from item and amount to from amount. Set from item to null and amount to 0.
+	if toSlot.item == null:
+		toSlot.item = fromSlot.item
+		toSlot.amount = fromSlot.amount
+		
+		fromSlot.item = null
+		fromSlot.amount = 0
+	
+	## Same item stack it together
+	elif toSlot.item == fromSlot.item:
+		var freeSpace = toSlot.item.maxStack - toSlot.amount
+		var amountToMove = min(fromSlot.amount, freeSpace)
+		
+		toSlot.amount += amountToMove
+		fromSlot.amount -= amountToMove
+		
+		if fromSlot.amount == 0:
+			fromSlot.item = null
+	
+	## Different item swap it
+	else:
+		var tempItem = toSlot.item
+		var tempAmount = toSlot.amount
+		
+		toSlot.item = fromSlot.item
+		toSlot.amount = fromSlot.amount
+		
+		fromSlot.item = tempItem
+		fromSlot.amount = tempAmount
 
 func addItem(item : ItemData, amount : int) -> int:
 	while amount > 0:
 		## Filter array slots that have an item and where amount is less than maxStack
-		var stackSlots = inventory.slots.filter(func(slot):
-			return slot.item == item and slot.amount < item.maxStack
+		var stackSlots = inventory.slots.filter(func(itemSlot):
+			return itemSlot.item == item and itemSlot.amount < item.maxStack
 		)
 
 		## If there are slots available pick the first one and add item
 		if !stackSlots.is_empty():
-			var slot = stackSlots[0]
-			var freeSpace = item.maxStack - slot.amount
+			var itemSlot = stackSlots[0]
+			var freeSpace = item.maxStack - itemSlot.amount
 			## Takes the smallest amount
+			@warning_ignore("confusable_local_declaration")
 			var amountToAdd = min(amount, freeSpace)
 
-			slot.amount += amountToAdd
+			itemSlot.amount += amountToAdd
 			amount -= amountToAdd
 			continue
 		
 		## Filter empty slots (Item == null)
-		var emptySlots = inventory.slots.filter(func(slot):
-			return slot.item == null
+		var emptySlots = inventory.slots.filter(func(emptySlot):
+			return emptySlot.item == null
 		)
 
 		## There are no empty slots left. Inv full
