@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://dm6a1h834gkxk" path="res://assets/sprites/spritesheets/PT_spritesheet.png" id="1_78awf"]
 [ext_resource type="PackedScene" uid="uid://b2ccxvscshpah" path="res://scenes/Player.tscn" id="2_s0nni"]
-[ext_resource type="PackedScene" uid="uid://5ah4gqdwaxoo" path="res://scenes/ItemSpawner.tscn" id="4_78awf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("1_78awf")
@@ -27,6 +26,3 @@ tile_set = SubResource("TileSet_bhunq")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1763861296]
 offset = Vector2(10, 10)
 transform = Transform2D(1, 0, 0, 1, 10, 10)
-
-[node name="ItemSpawner" parent="." unique_id=40867950 instance=ExtResource("4_78awf")]
-position = Vector2(-28, -88)

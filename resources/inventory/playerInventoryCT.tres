@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="InventoryManager" format=3 uid="uid://cycwi0ojuigj3"]
+
+[ext_resource type="Script" uid="uid://do02cyke1srwf" path="res://scripts/Inventory.gd" id="1_oosyu"]
+[ext_resource type="Script" uid="uid://cm82mbke4pgp" path="res://scripts/InventorySlot.gd" id="2_j7bek"]
+[ext_resource type="Resource" uid="uid://bwqwcu0qy51jk" path="res://resources/items/Apple.tres" id="3_iw841"]
+[ext_resource type="Script" uid="uid://cfq5rvrjcoe5f" path="res://scripts/InventoryManager.gd" id="4_pdfgl"]
+
+[sub_resource type="Resource" id="Resource_qu4a1"]
+script = ExtResource("2_j7bek")
+item = ExtResource("3_iw841")
+amount = 2
+metadata/_custom_type_script = "uid://cm82mbke4pgp"
+
+[sub_resource type="Resource" id="Resource_70d11"]
+script = ExtResource("2_j7bek")
+metadata/_custom_type_script = "uid://cm82mbke4pgp"
+
+[sub_resource type="Resource" id="Resource_3li8b"]
+script = ExtResource("1_oosyu")
+slots = Array[ExtResource("2_j7bek")]([SubResource("Resource_qu4a1"), SubResource("Resource_70d11")])
+metadata/_custom_type_script = "uid://do02cyke1srwf"
+
+[resource]
+script = ExtResource("4_pdfgl")
+inventory = SubResource("Resource_3li8b")
+metadata/_custom_type_script = "uid://cfq5rvrjcoe5f"

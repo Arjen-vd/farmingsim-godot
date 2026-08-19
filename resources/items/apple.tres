@@ -1,11 +1,12 @@
-[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://bwqwcu0qy51jk"]
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bwqwcu0qy51jk"]
 
-[ext_resource type="Texture2D" uid="uid://clbxnrbb66xal" path="res://assets/sprites/items/PT_apple.png" id="2_2oqkr"]
-[ext_resource type="Script" uid="uid://b3rcghqm7xtvv" path="res://scripts/inventory/InventoryItem.gd" id="2_yw5el"]
+[ext_resource type="Script" uid="uid://b3rcghqm7xtvv" path="res://scripts/ItemData.gd" id="1_dgogp"]
+[ext_resource type="Texture2D" uid="uid://clbxnrbb66xal" path="res://assets/sprites/items/PT_apple.png" id="2_hdtjk"]
 
 [resource]
-script = ExtResource("2_yw5el")
+script = ExtResource("1_dgogp")
 name = "Apple"
+description = "An apple a day keeps the doctor away"
 maxStack = 4
-icon = ExtResource("2_2oqkr")
+texture = ExtResource("2_hdtjk")
 metadata/_custom_type_script = "uid://b3rcghqm7xtvv"
