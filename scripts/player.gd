@@ -4,9 +4,9 @@ extends CharacterBody2D
 
 @export var inventoryManager : InventoryManager
 
+const APPLE = preload("res://resources/items/Apple.tres")
+
 func _ready() -> void:
-	inventoryManager.printContents()
-	inventoryManager.clearInventory()
 	inventoryManager.printContents()
 
 func _physics_process(delta: float) -> void:
@@ -16,9 +16,16 @@ func _physics_process(delta: float) -> void:
 	## Calculate velocity
 	velocity = input_direction * speed
 		
-	## Debug
-	# print("x: " + str(round(position.x)) + " y: " + str(round(position.y)))
+	if Input.is_action_just_pressed("Inventory"):
+		inventoryManager.printContents()
+		
+	if Input.is_action_just_pressed("Space"):
+		inventoryManager.clearInventory()
+		
+	if Input.is_action_just_pressed("AddApple"):
+		print(inventoryManager.addItem(APPLE, 5))
 
 	move_and_slide()
 	
-	
+func pickUpItemEntity(item : ItemData) -> bool:
+	return inventoryManager.pickUpItem(item)
