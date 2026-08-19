@@ -1,7 +1,7 @@
 extends Control
 
 @export var inventoryManager : InventoryManager
-@onready var slots: Array = $NinePatchRect/GridContainer.get_children()
+@onready var slots: Array = $Inventory.get_children()
 
 var isOpen : bool = false
 

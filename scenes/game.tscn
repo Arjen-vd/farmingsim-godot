@@ -3,10 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dm6a1h834gkxk" path="res://assets/sprites/spritesheets/PT_spritesheet.png" id="1_78awf"]
 [ext_resource type="PackedScene" uid="uid://b2ccxvscshpah" path="res://scenes/Player.tscn" id="2_s0nni"]
 [ext_resource type="PackedScene" uid="uid://5ah4gqdwaxoo" path="res://scenes/ItemSpawner.tscn" id="4_78awf"]
-[ext_resource type="PackedScene" uid="uid://bjcgt31q0gplk" path="res://scenes/ui/inv_ui_player.tscn" id="4_aug50"]
-[ext_resource type="Script" uid="uid://do02cyke1srwf" path="res://scripts/Inventory.gd" id="5_kiw3p"]
-[ext_resource type="Script" uid="uid://cm82mbke4pgp" path="res://scripts/InventorySlot.gd" id="6_400sg"]
-[ext_resource type="Script" uid="uid://cfq5rvrjcoe5f" path="res://scripts/InventoryManager.gd" id="7_g4kob"]
+[ext_resource type="PackedScene" uid="uid://bjcgt31q0gplk" path="res://scenes/ui/inv_ui_player.tscn" id="4_s0nni"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("1_78awf")
@@ -19,32 +16,6 @@ texture = ExtResource("1_78awf")
 [sub_resource type="TileSet" id="TileSet_bhunq"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_lnu2h")
-
-[sub_resource type="Resource" id="Resource_aug50"]
-script = ExtResource("6_400sg")
-metadata/_custom_type_script = "uid://cm82mbke4pgp"
-
-[sub_resource type="Resource" id="Resource_kiw3p"]
-script = ExtResource("6_400sg")
-metadata/_custom_type_script = "uid://cm82mbke4pgp"
-
-[sub_resource type="Resource" id="Resource_400sg"]
-script = ExtResource("6_400sg")
-metadata/_custom_type_script = "uid://cm82mbke4pgp"
-
-[sub_resource type="Resource" id="Resource_g4kob"]
-script = ExtResource("6_400sg")
-metadata/_custom_type_script = "uid://cm82mbke4pgp"
-
-[sub_resource type="Resource" id="Resource_s0nni"]
-script = ExtResource("5_kiw3p")
-slots = Array[ExtResource("6_400sg")]([SubResource("Resource_aug50"), SubResource("Resource_kiw3p"), SubResource("Resource_400sg"), SubResource("Resource_g4kob")])
-metadata/_custom_type_script = "uid://do02cyke1srwf"
-
-[sub_resource type="Resource" id="Resource_78awf"]
-script = ExtResource("7_g4kob")
-inventory = SubResource("Resource_s0nni")
-metadata/_custom_type_script = "uid://cfq5rvrjcoe5f"
 
 [node name="Game" type="Node2D" unique_id=83510337]
 
@@ -61,15 +32,4 @@ position = Vector2(-27, -39)
 offset = Vector2(10, 10)
 transform = Transform2D(1, 0, 0, 1, 10, 10)
 
-[node name="Inv_UI" parent="CanvasLayer" unique_id=1278450684 instance=ExtResource("4_aug50")]
-offset_left = 64.0
-offset_top = 25.0
-offset_right = 147.0
-offset_bottom = 78.0
-
-[node name="Inv_UI2" parent="CanvasLayer" unique_id=678736610 instance=ExtResource("4_aug50")]
-offset_left = 278.0
-offset_top = 25.0
-offset_right = 361.0
-offset_bottom = 78.0
-inventoryManager = SubResource("Resource_78awf")
+[node name="Inv_UI" parent="CanvasLayer" unique_id=1278450684 instance=ExtResource("4_s0nni")]

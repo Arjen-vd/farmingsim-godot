@@ -1,72 +1,134 @@
 [gd_scene format=3 uid="uid://bjcgt31q0gplk"]
 
 [ext_resource type="Script" uid="uid://cqbv0t4khxam7" path="res://scripts/InventoryUI.gd" id="1_2md16"]
-[ext_resource type="Texture2D" uid="uid://cmv53ihi1d7uk" path="res://assets/sprites/ui/PT_inventory_background.png" id="2_2tqa5"]
-[ext_resource type="Resource" uid="uid://cycwi0ojuigj3" path="res://resources/inventory/playerInventoryCT.tres" id="2_la000"]
+[ext_resource type="Resource" uid="uid://cycwi0ojuigj3" path="res://resources/inventory/playerInventoryController.tres" id="2_la000"]
 [ext_resource type="PackedScene" uid="uid://5dtjgb6dcacm" path="res://scenes/ui/inv_ui_slot.tscn" id="3_tmo6b"]
 
 [node name="Inv_UI" type="Control" unique_id=1278450684]
-custom_minimum_size = Vector2(83, 53)
 layout_mode = 3
-anchors_preset = 0
-offset_right = 83.0
-offset_bottom = 53.0
-scale = Vector2(2, 2)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_2md16")
 inventoryManager = ExtResource("2_la000")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=669206434]
+[node name="Inventory" type="Panel" parent="." unique_id=976096209]
 layout_mode = 0
-offset_right = 83.0
-offset_bottom = 53.0
-texture = ExtResource("2_2tqa5")
-patch_margin_left = 6
-patch_margin_top = 6
-patch_margin_right = 6
-patch_margin_bottom = 6
+offset_right = 128.0
+offset_bottom = 56.0
+scale = Vector2(2, 2)
 
-[node name="GridContainer" type="GridContainer" parent="NinePatchRect" unique_id=1311321880]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -38.5
-offset_top = -22.5
-offset_right = 57.749992
-offset_bottom = 33.749992
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.8, 0.8)
-columns = 5
+[node name="inv_UI_slot" parent="Inventory" unique_id=1035174303 instance=ExtResource("3_tmo6b")]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 24.0
+offset_bottom = 24.0
 
-[node name="inv_UI_slot" parent="NinePatchRect/GridContainer" unique_id=1035174303 instance=ExtResource("3_tmo6b")]
-layout_mode = 2
+[node name="inv_UI_slot2" parent="Inventory" unique_id=1796313623 instance=ExtResource("3_tmo6b")]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 8.0
+offset_right = 48.0
+offset_bottom = 24.0
 
-[node name="inv_UI_slot2" parent="NinePatchRect/GridContainer" unique_id=1700919064 instance=ExtResource("3_tmo6b")]
-layout_mode = 2
+[node name="inv_UI_slot3" parent="Inventory" unique_id=35678754 instance=ExtResource("3_tmo6b")]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 8.0
+offset_right = 72.0
+offset_bottom = 24.0
 
-[node name="inv_UI_slot3" parent="NinePatchRect/GridContainer" unique_id=1031658953 instance=ExtResource("3_tmo6b")]
-layout_mode = 2
+[node name="inv_UI_slot4" parent="Inventory" unique_id=551860217 instance=ExtResource("3_tmo6b")]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 8.0
+offset_right = 120.0
+offset_bottom = 24.0
 
-[node name="inv_UI_slot4" parent="NinePatchRect/GridContainer" unique_id=2114883018 instance=ExtResource("3_tmo6b")]
-layout_mode = 2
+[node name="inv_UI_slot5" parent="Inventory" unique_id=1159687263 instance=ExtResource("3_tmo6b")]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 8.0
+offset_right = 96.0
+offset_bottom = 24.0
 
-[node name="inv_UI_slot5" parent="NinePatchRect/GridContainer" unique_id=1677843933 instance=ExtResource("3_tmo6b")]
-layout_mode = 2
+[node name="inv_UI_slot6" parent="Inventory" unique_id=1306993336 instance=ExtResource("3_tmo6b")]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 32.0
+offset_right = 24.0
+offset_bottom = 48.0
 
-[node name="inv_UI_slot6" parent="NinePatchRect/GridContainer" unique_id=1683976324 instance=ExtResource("3_tmo6b")]
-layout_mode = 2
+[node name="inv_UI_slot7" parent="Inventory" unique_id=576105238 instance=ExtResource("3_tmo6b")]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 32.0
+offset_right = 120.0
+offset_bottom = 48.0
 
-[node name="inv_UI_slot7" parent="NinePatchRect/GridContainer" unique_id=1381481219 instance=ExtResource("3_tmo6b")]
-layout_mode = 2
+[node name="inv_UI_slot8" parent="Inventory" unique_id=1788008685 instance=ExtResource("3_tmo6b")]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 48.0
+offset_bottom = 48.0
 
-[node name="inv_UI_slot8" parent="NinePatchRect/GridContainer" unique_id=1847833155 instance=ExtResource("3_tmo6b")]
-layout_mode = 2
+[node name="inv_UI_slot9" parent="Inventory" unique_id=1926194754 instance=ExtResource("3_tmo6b")]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 32.0
+offset_right = 72.0
+offset_bottom = 48.0
 
-[node name="inv_UI_slot9" parent="NinePatchRect/GridContainer" unique_id=1493869249 instance=ExtResource("3_tmo6b")]
-layout_mode = 2
+[node name="inv_UI_slot10" parent="Inventory" unique_id=1800581528 instance=ExtResource("3_tmo6b")]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 32.0
+offset_right = 96.0
+offset_bottom = 48.0
 
-[node name="inv_UI_slot10" parent="NinePatchRect/GridContainer" unique_id=1184985656 instance=ExtResource("3_tmo6b")]
-layout_mode = 2
+[node name="Hotbar" type="Panel" parent="." unique_id=2116366383]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 296.0
+offset_right = 320.0
+offset_bottom = 328.0
+scale = Vector2(2, 2)
+
+[node name="inv_UI_slot" parent="Hotbar" unique_id=1973953138 instance=ExtResource("3_tmo6b")]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 24.0
+offset_bottom = 24.0
+
+[node name="inv_UI_slot2" parent="Hotbar" unique_id=1700919064 instance=ExtResource("3_tmo6b")]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 8.0
+offset_right = 48.0
+offset_bottom = 24.0
+
+[node name="inv_UI_slot3" parent="Hotbar" unique_id=1031658953 instance=ExtResource("3_tmo6b")]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 8.0
+offset_right = 72.0
+offset_bottom = 24.0
+
+[node name="inv_UI_slot4" parent="Hotbar" unique_id=2114883018 instance=ExtResource("3_tmo6b")]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 8.0
+offset_right = 120.0
+offset_bottom = 24.0
+
+[node name="inv_UI_slot5" parent="Hotbar" unique_id=1677843933 instance=ExtResource("3_tmo6b")]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 8.0
+offset_right = 96.0
+offset_bottom = 24.0
