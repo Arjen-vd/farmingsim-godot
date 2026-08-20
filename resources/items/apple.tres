@@ -7,6 +7,7 @@
 script = ExtResource("1_dgogp")
 name = "Apple"
 description = "An apple a day keeps the doctor away"
-maxStack = 8
+basePrice = 5
+maxStack = 16
 texture = ExtResource("2_hdtjk")
 metadata/_custom_type_script = "uid://b3rcghqm7xtvv"
