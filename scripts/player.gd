@@ -3,8 +3,9 @@ extends CharacterBody2D
 @export var speed : float = 75.0
 
 @export var inventoryManager : InventoryManager
+@export var playerData : PlayerData
+@onready var audioStreamPlayer: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
-const APPLE = preload("res://resources/items/Apple.tres")
 
 func _ready() -> void:
 	inventoryManager.printContents()
@@ -16,16 +17,30 @@ func _physics_process(delta: float) -> void:
 	## Calculate velocity
 	velocity = input_direction * speed
 		
+	## Debug inventory management	
 	if Input.is_action_just_pressed("Inventory"):
 		inventoryManager.printContents()
 		
 	if Input.is_action_just_pressed("Space"):
 		inventoryManager.clearInventory()
-		
-	if Input.is_action_just_pressed("AddApple"):
-		print(inventoryManager.addItem(APPLE, 5))
+
+	if Input.is_action_just_pressed("PrintStats"):
+		printPlayerStats()
 
 	move_and_slide()
 	
 func pickUpItemEntity(item : ItemData) -> bool:
-	return inventoryManager.pickUpItem(item)
+	if inventoryManager.pickUpItem(item):
+		audioStreamPlayer.play()
+		return true
+	else:
+		return false
+		
+		
+	
+func printPlayerStats() -> void:
+	print(
+		"Health: " + str(playerData.Health) + "\n",
+		"Stamina: " + str(playerData.Stamina) + "\n",
+		"Money: " + str(playerData.Money) + "\n"
+	)

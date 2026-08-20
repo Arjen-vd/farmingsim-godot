@@ -15,7 +15,6 @@ func update(
 		index: int,
 		manager: InventoryManager
 	):
-	print("SLOT UPDATE: ", index, " / ", slot.item, " / ", slot.amount)
 
 	inventory = new_inventory
 	inventorySlot = slot

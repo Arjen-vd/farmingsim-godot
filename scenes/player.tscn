@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://db3w7eqck0klq" path="res://scripts/Player.gd" id="1_qir2g"]
 [ext_resource type="Resource" uid="uid://cycwi0ojuigj3" path="res://resources/inventory/playerInventoryController.tres" id="2_3li8b"]
 [ext_resource type="Texture2D" uid="uid://s64uuj2ey6lr" path="res://assets/sprites/player/PT_player.png" id="2_lkt5g"]
+[ext_resource type="Resource" uid="uid://cnfqcixja2mam" path="res://resources/playerdata/PlayerData.tres" id="3_mdl7e"]
+[ext_resource type="AudioStream" uid="uid://dpy6embnph1p0" path="res://assets/audio/TemporaryItemPickupSound.mp3" id="5_qu4a1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bhunq"]
 radius = 4.0
@@ -11,7 +13,9 @@ height = 12.0
 [node name="Player" type="CharacterBody2D" unique_id=2116790181]
 z_index = 5
 script = ExtResource("1_qir2g")
+speed = 125.0
 inventoryManager = ExtResource("2_3li8b")
+playerData = ExtResource("3_mdl7e")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=457330853]
 texture = ExtResource("2_lkt5g")
@@ -22,3 +26,7 @@ shape = SubResource("CapsuleShape2D_bhunq")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=275018194]
 zoom = Vector2(2, 2)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=585698358]
+stream = ExtResource("5_qu4a1")
+bus = &"SFX"

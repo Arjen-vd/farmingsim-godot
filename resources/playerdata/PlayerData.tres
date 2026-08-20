@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PlayerData" format=3 uid="uid://cnfqcixja2mam"]
+
+[ext_resource type="Script" uid="uid://dmn50dtdr26c2" path="res://scripts/PlayerData.gd" id="1_yua30"]
+
+[resource]
+script = ExtResource("1_yua30")
+Health = 10
+Stamina = 10
+Money = 100
+metadata/_custom_type_script = "uid://dmn50dtdr26c2"
