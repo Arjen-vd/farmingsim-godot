@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://c3aypuknqjanp" path="res://assets/sprites/objects/PT_itemspawner.png" id="1_4rqq8"]
 [ext_resource type="Script" uid="uid://cek8vws0ut4n6" path="res://scripts/ItemSpawner.gd" id="1_vsudw"]
+[ext_resource type="Resource" uid="uid://sgtb28srw1uo" path="res://resources/inventory/testInv.tres" id="2_8eel7"]
+[ext_resource type="PackedScene" uid="uid://bjcgt31q0gplk" path="res://scenes/ui/inv_ui_player.tscn" id="2_kitgv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_riqys"]
 size = Vector2(16, 16)
@@ -30,6 +32,14 @@ animations = [{
 
 [node name="ItemSpawner" type="Area2D" unique_id=1203374836]
 script = ExtResource("1_vsudw")
+inventoryManager = ExtResource("2_8eel7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1115339602]
+
+[node name="Inv_UI" parent="CanvasLayer" unique_id=1278450684 instance=ExtResource("2_kitgv")]
+offset_left = 384.0
+offset_right = 0.0
+inventoryManager = ExtResource("2_8eel7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=939510165]
 z_index = 1

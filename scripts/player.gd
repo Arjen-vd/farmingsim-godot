@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var inventoryManager : InventoryManager
 @export var playerData : PlayerData
 @onready var audioStreamPlayer: AudioStreamPlayer2D = $Audio/AudioStreamPlayer2D
-
+@onready var inventoryUI : Control = $CanvasLayer/Inv_UI
 
 func _ready() -> void:
 	inventoryManager.printContents()
@@ -17,9 +17,10 @@ func _physics_process(delta: float) -> void:
 	## Calculate velocity
 	velocity = input_direction * speed
 		
-	## Debug inventory management	
+	## Debug inventory management
 	if Input.is_action_just_pressed("Inventory"):
 		inventoryManager.printContents()
+		inventoryUI.openInventory()
 		
 	if Input.is_action_just_pressed("Space"):
 		inventoryManager.clearInventory()

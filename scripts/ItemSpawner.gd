@@ -2,6 +2,8 @@ extends Area2D
 
 var itemEntity = preload("res://scenes/ItemEntity.tscn")
 var appleResource = preload("res://resources/items/apple.tres")
+@onready var inventoryUI : Control = $CanvasLayer/Inv_UI
+@export var inventoryManager : InventoryManager
 
 @onready var timer: Timer = $Timer
 
@@ -17,8 +19,10 @@ func spawnItem(item: ItemData, spawnPosition: Vector2):
 	
 func _on_area_entered(area: Area2D) -> void:
 	timer.start()
+	inventoryUI.openInventory()
 	print("Entered")
 	
 func _on_area_exited(area: Area2D) -> void:
 	timer.stop()
+	inventoryUI.openInventory()
 	print("Exited")

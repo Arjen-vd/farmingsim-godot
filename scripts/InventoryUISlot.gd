@@ -4,13 +4,13 @@ extends Panel
 @onready var amountText: Label = $CenterContainer/Panel/Label
 
 var inventorySlot: InventorySlot
-var inventory: Inventory
+var inventory: InventoryData
 var slotIndex: int
 var inventoryManager: InventoryManager
 
 
 func update(
-		new_inventory: Inventory,
+		new_inventory: InventoryData,
 		slot: InventorySlot,
 		index: int,
 		manager: InventoryManager
@@ -48,7 +48,7 @@ func _get_drag_data(at_position: Vector2) -> Variant:
 
 
 func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
-	var draggedInventory: Inventory = data["inventory"]
+	var draggedInventory: InventoryData = data["inventory"]
 	var draggedIndex: int = data["index"]
 	
 	return inventoryManager.canMove(
@@ -60,7 +60,7 @@ func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
 
 
 func _drop_data(at_position: Vector2, data: Variant) -> void:
-	var draggedInventory: Inventory = data["inventory"]
+	var draggedInventory: InventoryData = data["inventory"]
 	var draggedIndex: int = data["index"]
 	
 	inventoryManager.moveItem(

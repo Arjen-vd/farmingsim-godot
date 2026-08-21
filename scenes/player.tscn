@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://bwryifed1wpjc"]
 
 [ext_resource type="Script" uid="uid://3iljcrhxts8l" path="res://scripts/Player.gd" id="1_qir2g"]
-[ext_resource type="Resource" uid="uid://cycwi0ojuigj3" path="res://resources/inventory/playerInventoryController.tres" id="2_3li8b"]
+[ext_resource type="Resource" uid="uid://bll7kqxlm5rs4" path="res://resources/inventory/playerInv.tres" id="2_70d11"]
 [ext_resource type="Texture2D" uid="uid://s64uuj2ey6lr" path="res://assets/sprites/player/PT_player.png" id="2_lkt5g"]
 [ext_resource type="Resource" uid="uid://cnfqcixja2mam" path="res://resources/playerdata/PlayerData.tres" id="3_mdl7e"]
 [ext_resource type="AudioStream" uid="uid://dpy6embnph1p0" path="res://assets/audio/TemporaryItemPickupSound.mp3" id="5_qu4a1"]
+[ext_resource type="PackedScene" uid="uid://bjcgt31q0gplk" path="res://scenes/ui/inv_ui_player.tscn" id="6_70d11"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bhunq"]
 radius = 4.0
@@ -17,7 +18,7 @@ radius = 30.0
 z_index = 5
 script = ExtResource("1_qir2g")
 speed = 125.0
-inventoryManager = ExtResource("2_3li8b")
+inventoryManager = ExtResource("2_70d11")
 playerData = ExtResource("3_mdl7e")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=457330853]
@@ -41,3 +42,10 @@ debug_color = Color(1, 0, 0.12941177, 0.16862746)
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Audio" unique_id=585698358]
 stream = ExtResource("5_qu4a1")
 bus = &"SFX"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1522730855]
+offset = Vector2(6, 6)
+transform = Transform2D(1, 0, 0, 1, 6, 6)
+
+[node name="Inv_UI" parent="CanvasLayer" unique_id=1278450684 instance=ExtResource("6_70d11")]
+inventoryManager = ExtResource("2_70d11")

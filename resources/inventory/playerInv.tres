@@ -1,0 +1,55 @@
+[gd_resource type="Resource" script_class="InventoryManager" format=3 uid="uid://bll7kqxlm5rs4"]
+
+[ext_resource type="Script" uid="uid://cfq5rvrjcoe5f" path="res://scripts/InventoryManager.gd" id="1_f1clt"]
+[ext_resource type="Script" uid="uid://do02cyke1srwf" path="res://scripts/Data/InventoryData.gd" id="1_xwkmo"]
+[ext_resource type="Script" uid="uid://cm82mbke4pgp" path="res://scripts/Data/InventorySlotData.gd" id="2_t4y8r"]
+
+[sub_resource type="Resource" id="Resource_xwkmo"]
+script = ExtResource("2_t4y8r")
+metadata/_custom_type_script = "uid://cm82mbke4pgp"
+
+[sub_resource type="Resource" id="Resource_t4y8r"]
+script = ExtResource("2_t4y8r")
+metadata/_custom_type_script = "uid://cm82mbke4pgp"
+
+[sub_resource type="Resource" id="Resource_0wpwx"]
+script = ExtResource("2_t4y8r")
+metadata/_custom_type_script = "uid://cm82mbke4pgp"
+
+[sub_resource type="Resource" id="Resource_513cr"]
+script = ExtResource("2_t4y8r")
+metadata/_custom_type_script = "uid://cm82mbke4pgp"
+
+[sub_resource type="Resource" id="Resource_jltuy"]
+script = ExtResource("2_t4y8r")
+metadata/_custom_type_script = "uid://cm82mbke4pgp"
+
+[sub_resource type="Resource" id="Resource_y5nnk"]
+script = ExtResource("2_t4y8r")
+metadata/_custom_type_script = "uid://cm82mbke4pgp"
+
+[sub_resource type="Resource" id="Resource_n2pls"]
+script = ExtResource("2_t4y8r")
+metadata/_custom_type_script = "uid://cm82mbke4pgp"
+
+[sub_resource type="Resource" id="Resource_47c4b"]
+script = ExtResource("2_t4y8r")
+metadata/_custom_type_script = "uid://cm82mbke4pgp"
+
+[sub_resource type="Resource" id="Resource_s4slf"]
+script = ExtResource("2_t4y8r")
+metadata/_custom_type_script = "uid://cm82mbke4pgp"
+
+[sub_resource type="Resource" id="Resource_1b7wb"]
+script = ExtResource("2_t4y8r")
+metadata/_custom_type_script = "uid://cm82mbke4pgp"
+
+[sub_resource type="Resource" id="Resource_w35kf"]
+script = ExtResource("1_xwkmo")
+slots = Array[ExtResource("2_t4y8r")]([SubResource("Resource_xwkmo"), SubResource("Resource_t4y8r"), SubResource("Resource_0wpwx"), SubResource("Resource_513cr"), SubResource("Resource_jltuy"), SubResource("Resource_y5nnk"), SubResource("Resource_n2pls"), SubResource("Resource_47c4b"), SubResource("Resource_s4slf"), SubResource("Resource_1b7wb")])
+metadata/_custom_type_script = "uid://do02cyke1srwf"
+
+[resource]
+script = ExtResource("1_f1clt")
+inventoryData = SubResource("Resource_w35kf")
+metadata/_custom_type_script = "uid://cfq5rvrjcoe5f"

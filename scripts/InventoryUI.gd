@@ -6,14 +6,14 @@ extends Control
 var isOpen : bool = false
 
 func _ready() -> void:
-	inventoryManager.inventory.update.connect(update_slots)
+	inventoryManager.inventoryData.update.connect(update_slots)
 	update_slots()
 	close()
 		
 func update_slots():
 	print("UPDATE UI")
 
-	var inventory = inventoryManager.inventory
+	var inventory = inventoryManager.inventoryData
 	
 	for i in range(min(inventory.slots.size(), slots.size())):
 		slots[i].update(
@@ -23,12 +23,11 @@ func update_slots():
 		inventoryManager
 	)
 
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("Inventory"):
-		if isOpen:
-			close()
-		else:
-			open()
+func openInventory() -> void:
+	if isOpen:
+		close()
+	else:
+		open()
 	
 func open():
 	visible = true

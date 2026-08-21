@@ -2,10 +2,10 @@ extends Resource
 
 class_name InventoryManager
 
-@export var inventory : Inventory
+@export var inventoryData : InventoryData
 
-func canMove(fromInventory : Inventory, fromIndex : int,
-		toInventory : Inventory, toIndex : int) -> bool:
+func canMove(fromInventory : InventoryData, fromIndex : int,
+		toInventory : InventoryData, toIndex : int) -> bool:
 	
 	var fromSlot = fromInventory.slots[fromIndex]
 	var toSlot = toInventory.slots[toIndex]
@@ -25,8 +25,8 @@ func canMove(fromInventory : Inventory, fromIndex : int,
 	return true
 		
 	
-func moveItem(fromInventory : Inventory, fromIndex : int,
-		toInventory : Inventory, toIndex : int) -> void:
+func moveItem(fromInventory : InventoryData, fromIndex : int,
+		toInventory : InventoryData, toIndex : int) -> void:
 	
 	if not canMove(fromInventory, fromIndex, toInventory, toIndex):
 		return
@@ -75,7 +75,7 @@ func moveItem(fromInventory : Inventory, fromIndex : int,
 func addItem(item : ItemData, amount : int) -> int:
 	while amount > 0:
 		## Filter array slots that have an item and where amount is less than maxStack
-		var stackSlots = inventory.slots.filter(func(itemSlot):
+		var stackSlots = inventoryData.slots.filter(func(itemSlot):
 			return itemSlot.item == item and itemSlot.amount < item.maxStack
 		)
 
@@ -89,11 +89,11 @@ func addItem(item : ItemData, amount : int) -> int:
 
 			itemSlot.amount += amountToAdd
 			amount -= amountToAdd
-			inventory.update.emit()
+			inventoryData.update.emit()
 			continue
 		
 		## Filter empty slots (Item == null)
-		var emptySlots = inventory.slots.filter(func(emptySlot):
+		var emptySlots = inventoryData.slots.filter(func(emptySlot):
 			return emptySlot.item == null
 		)
 
@@ -108,7 +108,7 @@ func addItem(item : ItemData, amount : int) -> int:
 		slot.item = item
 		slot.amount = amountToAdd
 		amount -= amountToAdd
-		inventory.update.emit()
+		inventoryData.update.emit()
 
 	return amount
 			
@@ -118,15 +118,15 @@ func pickUpItem(item : ItemData) -> bool:
 	return true
 	
 func clearInventory():
-	for i in inventory.slots:
+	for i in inventoryData.slots:
 		i.item = null
 		i.amount = 0
-		inventory.update.emit()
+		inventoryData.update.emit()
 
 		
 func printContents():
 	print("Inventory:")
-	for i in inventory.slots:
+	for i in inventoryData.slots:
 		if i.item != null:
 			print(str(i.item.name) + " " + str(i.amount))
 		else:
