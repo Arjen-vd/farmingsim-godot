@@ -1,7 +1,7 @@
 extends Area2D
 
 var itemEntity = preload("res://scenes/ItemEntity.tscn")
-var appleResource = preload("res://resources/items/Apple.tres")
+var appleResource = preload("res://resources/items/apple.tres")
 
 @onready var timer: Timer = $Timer
 
