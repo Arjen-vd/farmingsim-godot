@@ -5,10 +5,6 @@ var appleResource = preload("res://resources/items/apple.tres")
 
 @onready var timer: Timer = $Timer
 
-
-func _ready():
-	timer.start()
-	
 func _on_timer_timeout() -> void:
 	spawnItem(appleResource, Vector2(randi_range(-20,20), randi_range(-20,20)))
 
@@ -18,3 +14,11 @@ func spawnItem(item: ItemData, spawnPosition: Vector2):
 	
 	entity.initialize(item)
 	entity.position = spawnPosition
+	
+func _on_area_entered(area: Area2D) -> void:
+	timer.start()
+	print("Entered")
+	
+func _on_area_exited(area: Area2D) -> void:
+	timer.stop()
+	print("Exited")

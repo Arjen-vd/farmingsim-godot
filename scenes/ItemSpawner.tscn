@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://5ah4gqdwaxoo"]
 
 [ext_resource type="Texture2D" uid="uid://c3aypuknqjanp" path="res://assets/sprites/objects/PT_itemspawner.png" id="1_4rqq8"]
-[ext_resource type="Script" uid="uid://cek8vws0ut4n6" path="res://ItemSpawner.gd" id="1_vsudw"]
+[ext_resource type="Script" uid="uid://cek8vws0ut4n6" path="res://scripts/ItemSpawner.gd" id="1_vsudw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_riqys"]
 size = Vector2(16, 16)
@@ -42,4 +42,7 @@ frame_progress = 0.10665077
 
 [node name="Timer" type="Timer" parent="." unique_id=487638851]
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

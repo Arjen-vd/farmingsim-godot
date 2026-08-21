@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 @export var inventoryManager : InventoryManager
 @export var playerData : PlayerData
-@onready var audioStreamPlayer: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var audioStreamPlayer: AudioStreamPlayer2D = $Audio/AudioStreamPlayer2D
 
 
 func _ready() -> void:
@@ -36,11 +36,10 @@ func pickUpItemEntity(item : ItemData) -> bool:
 	else:
 		return false
 		
-		
-	
 func printPlayerStats() -> void:
 	print(
 		"Health: " + str(playerData.Health) + "\n",
 		"Stamina: " + str(playerData.Stamina) + "\n",
 		"Money: " + str(playerData.Money) + "\n"
 	)
+	

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="InventoryManager" format=3 uid="uid://cycwi0ojuigj3"]
 
-[ext_resource type="Script" uid="uid://do02cyke1srwf" path="res://scripts/Inventory.gd" id="1_oosyu"]
-[ext_resource type="Script" uid="uid://cm82mbke4pgp" path="res://scripts/InventorySlot.gd" id="2_j7bek"]
+[ext_resource type="Script" uid="uid://do02cyke1srwf" path="res://scripts/Data/InventoryData.gd" id="1_oosyu"]
+[ext_resource type="Script" uid="uid://cm82mbke4pgp" path="res://scripts/Data/InventorySlotData.gd" id="2_j7bek"]
 [ext_resource type="Script" uid="uid://cfq5rvrjcoe5f" path="res://scripts/InventoryManager.gd" id="4_pdfgl"]
 
 [sub_resource type="Resource" id="Resource_qu4a1"]

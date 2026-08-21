@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bwryifed1wpjc"]
 
-[ext_resource type="Script" uid="uid://db3w7eqck0klq" path="res://scripts/Player.gd" id="1_qir2g"]
+[ext_resource type="Script" uid="uid://3iljcrhxts8l" path="res://scripts/Player.gd" id="1_qir2g"]
 [ext_resource type="Resource" uid="uid://cycwi0ojuigj3" path="res://resources/inventory/playerInventoryController.tres" id="2_3li8b"]
 [ext_resource type="Texture2D" uid="uid://s64uuj2ey6lr" path="res://assets/sprites/player/PT_player.png" id="2_lkt5g"]
 [ext_resource type="Resource" uid="uid://cnfqcixja2mam" path="res://resources/playerdata/PlayerData.tres" id="3_mdl7e"]
@@ -9,6 +9,9 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bhunq"]
 radius = 4.0
 height = 12.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_riqys"]
+radius = 30.0
 
 [node name="Player" type="CharacterBody2D" unique_id=2116790181]
 z_index = 5
@@ -20,13 +23,21 @@ playerData = ExtResource("3_mdl7e")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=457330853]
 texture = ExtResource("2_lkt5g")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1917688958]
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=1917688958]
 position = Vector2(0, 7)
 shape = SubResource("CapsuleShape2D_bhunq")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=275018194]
 zoom = Vector2(2, 2)
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=585698358]
+[node name="Interact" type="Area2D" parent="." unique_id=569983148]
+
+[node name="DetecionRange" type="CollisionShape2D" parent="Interact" unique_id=10239676]
+shape = SubResource("CircleShape2D_riqys")
+debug_color = Color(1, 0, 0.12941177, 0.16862746)
+
+[node name="Audio" type="Node2D" parent="." unique_id=558722333]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Audio" unique_id=585698358]
 stream = ExtResource("5_qu4a1")
 bus = &"SFX"
