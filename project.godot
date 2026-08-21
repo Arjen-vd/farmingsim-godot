@@ -14,6 +14,10 @@ config/name="FarmingSim"
 run/main_scene="uid://hlyfbsulapwy"
 config/features=PackedStringArray("4.7", "Forward Plus")
 
+[audio]
+
+buses/default_bus_layout="uid://c2jjitpl4m3gl"
+
 [display]
 
 window/size/viewport_width=640
@@ -21,6 +25,10 @@ window/size/viewport_height=360
 window/size/window_width_override=1920
 window/size/window_height_override=1080
 window/stretch/mode="canvas_items"
+
+[editor]
+
+movie_writer/movie_file="C:/Users/arjen/Desktop/farmingsim-godot/assets/recordings/out.avi"
 
 [input]
 
