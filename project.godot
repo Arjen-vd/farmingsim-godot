@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="FarmingSim"
-run/main_scene="uid://hlyfbsulapwy"
+run/main_scene="uid://d3tmplic702mm"
 config/features=PackedStringArray("4.7", "Forward Plus")
 
 [audio]
