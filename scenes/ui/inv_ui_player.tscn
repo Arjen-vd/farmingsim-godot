@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bjcgt31q0gplk"]
 
 [ext_resource type="Script" uid="uid://cqbv0t4khxam7" path="res://scripts/InventoryUI.gd" id="1_2md16"]
-[ext_resource type="Resource" uid="uid://cycwi0ojuigj3" path="res://resources/inventory/playerInventoryController.tres" id="2_la000"]
+[ext_resource type="Resource" uid="uid://bll7kqxlm5rs4" path="res://resources/inventory/playerInv.tres" id="2_2md16"]
 [ext_resource type="PackedScene" uid="uid://5dtjgb6dcacm" path="res://scenes/ui/inv_ui_slot.tscn" id="3_tmo6b"]
 
 [node name="Inv_UI" type="Control" unique_id=1278450684]
@@ -14,7 +14,7 @@ offset_bottom = -248.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2md16")
-inventoryManager = ExtResource("2_la000")
+inventoryManager = ExtResource("2_2md16")
 
 [node name="Inventory" type="Panel" parent="." unique_id=976096209]
 layout_mode = 0

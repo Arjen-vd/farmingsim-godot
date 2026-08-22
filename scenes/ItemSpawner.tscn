@@ -2,8 +2,59 @@
 
 [ext_resource type="Texture2D" uid="uid://c3aypuknqjanp" path="res://assets/sprites/objects/PT_itemspawner.png" id="1_4rqq8"]
 [ext_resource type="Script" uid="uid://cek8vws0ut4n6" path="res://scripts/ItemSpawner.gd" id="1_vsudw"]
-[ext_resource type="Resource" uid="uid://sgtb28srw1uo" path="res://resources/inventory/testInv.tres" id="2_8eel7"]
-[ext_resource type="PackedScene" uid="uid://bjcgt31q0gplk" path="res://scenes/ui/inv_ui_player.tscn" id="2_kitgv"]
+[ext_resource type="Script" uid="uid://do02cyke1srwf" path="res://scripts/Data/InventoryData.gd" id="2_8eel7"]
+[ext_resource type="Script" uid="uid://cm82mbke4pgp" path="res://scripts/Data/InventorySlotData.gd" id="3_rgkot"]
+[ext_resource type="Script" uid="uid://cfq5rvrjcoe5f" path="res://scripts/InventoryManager.gd" id="4_8g23i"]
+
+[sub_resource type="Resource" id="Resource_cw2d6"]
+script = ExtResource("3_rgkot")
+metadata/_custom_type_script = "uid://cm82mbke4pgp"
+
+[sub_resource type="Resource" id="Resource_khinc"]
+script = ExtResource("3_rgkot")
+metadata/_custom_type_script = "uid://cm82mbke4pgp"
+
+[sub_resource type="Resource" id="Resource_bruh7"]
+script = ExtResource("3_rgkot")
+metadata/_custom_type_script = "uid://cm82mbke4pgp"
+
+[sub_resource type="Resource" id="Resource_6eyey"]
+script = ExtResource("3_rgkot")
+metadata/_custom_type_script = "uid://cm82mbke4pgp"
+
+[sub_resource type="Resource" id="Resource_d3wef"]
+script = ExtResource("3_rgkot")
+metadata/_custom_type_script = "uid://cm82mbke4pgp"
+
+[sub_resource type="Resource" id="Resource_o4126"]
+script = ExtResource("3_rgkot")
+metadata/_custom_type_script = "uid://cm82mbke4pgp"
+
+[sub_resource type="Resource" id="Resource_lkdrv"]
+script = ExtResource("3_rgkot")
+metadata/_custom_type_script = "uid://cm82mbke4pgp"
+
+[sub_resource type="Resource" id="Resource_p7iby"]
+script = ExtResource("3_rgkot")
+metadata/_custom_type_script = "uid://cm82mbke4pgp"
+
+[sub_resource type="Resource" id="Resource_0rnld"]
+script = ExtResource("3_rgkot")
+metadata/_custom_type_script = "uid://cm82mbke4pgp"
+
+[sub_resource type="Resource" id="Resource_srp4u"]
+script = ExtResource("3_rgkot")
+metadata/_custom_type_script = "uid://cm82mbke4pgp"
+
+[sub_resource type="Resource" id="Resource_70d11"]
+script = ExtResource("2_8eel7")
+slots = Array[ExtResource("3_rgkot")]([SubResource("Resource_cw2d6"), SubResource("Resource_khinc"), SubResource("Resource_bruh7"), SubResource("Resource_6eyey"), SubResource("Resource_d3wef"), SubResource("Resource_o4126"), SubResource("Resource_lkdrv"), SubResource("Resource_p7iby"), SubResource("Resource_0rnld"), SubResource("Resource_srp4u")])
+metadata/_custom_type_script = "uid://do02cyke1srwf"
+
+[sub_resource type="Resource" id="Resource_w25cr"]
+script = ExtResource("4_8g23i")
+inventoryData = SubResource("Resource_70d11")
+metadata/_custom_type_script = "uid://cfq5rvrjcoe5f"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_riqys"]
 size = Vector2(16, 16)
@@ -32,14 +83,7 @@ animations = [{
 
 [node name="ItemSpawner" type="Area2D" unique_id=1203374836]
 script = ExtResource("1_vsudw")
-inventoryManager = ExtResource("2_8eel7")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1115339602]
-
-[node name="Inv_UI" parent="CanvasLayer" unique_id=1278450684 instance=ExtResource("2_kitgv")]
-offset_left = 384.0
-offset_right = 0.0
-inventoryManager = ExtResource("2_8eel7")
+inventoryManager = SubResource("Resource_w25cr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=939510165]
 z_index = 1
