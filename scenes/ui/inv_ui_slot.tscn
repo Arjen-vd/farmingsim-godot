@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://5dtjgb6dcacm"]
 
 [ext_resource type="Script" uid="uid://bnu41rrd2q7oj" path="res://scripts/InventoryUISlot.gd" id="1_xk2dx"]
-[ext_resource type="Texture2D" uid="uid://b5jeawbwlfd7k" path="res://assets/sprites/ui/PT_inventory_slot.png" id="2_csgc5"]
+[ext_resource type="Texture2D" uid="uid://cw7pmm0mc0j0e" path="res://assets/sprites/ui/PT_InventorySlot.png" id="2_xk2dx"]
+[ext_resource type="FontFile" uid="uid://dvd55no48c1k6" path="res://assets/fonts/Orbitron-VariableFont_wght.ttf" id="3_csgc5"]
 
 [node name="inv_UI_slot" type="Panel" unique_id=1035174303]
 self_modulate = Color(1, 1, 1, 0)
@@ -11,7 +12,7 @@ offset_bottom = 16.0
 script = ExtResource("1_xk2dx")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=764440533]
-texture = ExtResource("2_csgc5")
+texture = ExtResource("2_xk2dx")
 centered = false
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=147107091]
@@ -29,11 +30,12 @@ scale = Vector2(0.8, 0.8)
 [node name="Label" type="Label" parent="CenterContainer/Panel" unique_id=1651064081]
 custom_minimum_size = Vector2(19, 23)
 layout_mode = 0
-offset_left = -3.0
+offset_left = -4.0
 offset_top = 2.0
-offset_right = 16.0
+offset_right = 15.0
 offset_bottom = 25.0
 scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("3_csgc5")
 theme_override_font_sizes/font_size = 8
 text = "99"
 horizontal_alignment = 2
